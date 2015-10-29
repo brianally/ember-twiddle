@@ -1,26 +1,13 @@
-$brand-primary:              #000;
-$screen-md:                  950px !default;
-$ember-orange: 							 #f67862;
-$dropdown-link-hover-bg:     $ember-orange;
-$dropdown-link-hover-color:  #fff;
-$dropdown-link-color:        #000;
-$navbar-default-link-color:                #777 !default;
-$navbar-default-link-hover-color:          #333 !default;
-$navbar-default-link-hover-bg:             transparent !default;
-$navbar-default-link-active-color:         #555 !default;
-$header-icon-color:                        #c6b5ad !default;
+@import "partials/mixins";
+@import "partials/variables";
+@import "partials/bootstrap_custom";
+@import "vendor/twiddlicon/twiddlicon.scss";
 
-$topbar-height: 60px;
-$topbar-control-height: 32px;
-$code-header-height: 60px;
 
 .dropdown-submenu:hover > a {
   background: $dropdown-link-hover-bg;
   color: $dropdown-link-hover-color;
 }
-
-@import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
-@import "vendor/twiddlicon/twiddlicon.scss";
 
 button {
   @extend .btn;
@@ -98,14 +85,14 @@ body {
     text-align: center;
 
     .saved-twiddles-header {
-      color: #faf2ee;
+      color: $bleached-orange;
       font-size: 15px;
     }
 
     .indicator {
       text-transform: uppercase;
       font-weight: bold;
-      color: #faf2ee;
+      color: $bleached-orange;
       text-shadow: rgba(0, 0, 0, 0.3) 0px 1px 0px;
 
       a {
@@ -122,10 +109,10 @@ body {
       padding: 5px 10px;
       transition: background .3s;
       font-size: 15px;
-      text-shadow: rgba(0,0,0,0.3) 0px 1px 0px;
+      text-shadow: $text-shadow;
       border-radius: 3px;
       border: 0;
-      color: #faf2ee;
+      color: $bleached-orange;
       cursor: pointer;
 
       input {
@@ -136,7 +123,7 @@ body {
       }
 
       .glyphicon {
-        color: #faf2ee;
+        color: $bleached-orange;
       }
 
       &.active .glyphicon {
@@ -145,7 +132,7 @@ body {
 
       &:hover {
         text-shadow: none;
-        background-color: rgba(0,0,0,0.13);
+        background-color: $menu-hover-bg;
       }
 
       &.active {
@@ -177,13 +164,13 @@ body {
     line-height: $topbar-control-height - 2;
     text-transform: uppercase;
     font-weight: bold;
-    color: #faf2ee;
-    text-shadow: rgba(0,0,0,0.3) 0px 1px 0px;
+    color: $bleached-orange;
+    text-shadow: $text-shadow;
     border: 1px solid transparent;
 
     &:hover, &:focus {
       text-shadow: none;
-      background-color: rgba(0,0,0,0.13);
+      background-color: $menu-hover-bg;
     }
   }
 
@@ -202,8 +189,8 @@ body {
     line-height: $topbar-control-height - 2;
     text-transform: uppercase;
     font-weight: bold;
-    color: #faf2ee;
-    text-shadow: rgba(0,0,0,0.3) 0px 1px 0px;
+    color: $bleached-orange;
+    text-shadow: $text-shadow;
     border: 1px solid transparent;
   }
 
@@ -254,7 +241,7 @@ body {
     flex: 0.5;
     padding: 0;
     height: 100%;
-    border-right: 1px solid #e4e2e2;
+    border-right: 1px solid $grey-2;
     cursor: normal;
 
     @media (max-width: $screen-md-min) {
@@ -297,9 +284,9 @@ body {
 
   .header {
     height: $code-header-height;
-    border-bottom: 1px solid #e4e2e2;
+    border-bottom: 1px solid $grey-2;
     font-size: 16px;
-    background-color: #faf4f1;
+    background-color: $grey-1;
     position: relative;
 
     .nav-left {
@@ -342,7 +329,7 @@ body {
     }
 
     .twiddlicon:hover{
-      color: #faf4f1;
+      color: $grey-1;
       background-color: #d6c3ba;
       border-radius: 20%;
       padding: 2px;
@@ -355,7 +342,7 @@ body {
     }
 
     .glyphicon:hover {
-      color: #faf4f1;
+      color: $grey-1;
       background-color: #d6c3ba;
       border-radius: 20%;
       padding: 2px;
