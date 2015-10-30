@@ -311,6 +311,11 @@ body {
 	width           : auto;
 	min-width       : 33.33333%;
 
+  .build-msgs {
+		margin : 18px 25px;
+		display: inline-block;
+  }
+  
 	.run-or-live-reload {
 		position  : absolute;
 		right     : 0;
@@ -363,9 +368,15 @@ body {
 }
 
 .handle {
+	position        : relative;
+	z-index         : 1000;
 	width           : 3px;
 	margin-left     : -3px;
 	background-color: transparent;
+
+	&:hover {
+		background-color: $grey-4;
+	}
 }
 
 
