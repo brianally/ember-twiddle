@@ -8,3 +8,8 @@
 	-o-#{$name}     : #{$argument};
 	#{$name}        : #{$argument};
 }
+
+// add a transparent border to avoid shifting
+@mixin trans-border($size: 1px) {
+	border: $size solid transparent;
+}

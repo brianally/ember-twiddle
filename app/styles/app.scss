@@ -24,7 +24,7 @@ body {
 }
 
 .light-gray {
-  color: #cccccc;
+  color: $grey-5;
 }
 
 .yellow {
@@ -36,30 +36,29 @@ body {
 }
 
 .toolbar {
-  height: $topbar-height;
-  font-size: 13px;
-  background: #e1563f top center;
-  background-image: url("../images/navigation_background.png");
-  border-bottom: 1px solid #aa412f;
-  -moz-box-shadow: rgba(0,0,0,0.3) 0 0 3px;
-  -webkit-box-shadow: rgba(0,0,0,0.3) 0 0 3px;
-  box-shadow: rgba(0,0,0,0.3) 0 0 3px;
+	height          : $topbar-height;
+	font-size       : $font-size;
+	background      : $ember-orange top center;
+	background-image: url("../images/navigation_background.png");
+	border-bottom   : 1px solid $burnt-orange;
+
+  @include vendor(box-shadow, rgba(0, 0, 0, $shadow-opacity) 0 0 3px);
 
   .user-menu {
-    position: absolute;
-    right: ($topbar-height - $topbar-control-height) / 2;
-    top: ($topbar-height - $topbar-control-height) / 2;
-    text-align: right;
+		position  : absolute;
+		right     : ($topbar-height - $topbar-control-height) / 2;
+		top       : ($topbar-height - $topbar-control-height) / 2;
+		text-align: right;
 
     .user-avatar {
-      display: inline-block;
-      width: $topbar-control-height;
-      height: $topbar-control-height;
-      overflow: hidden;
-      float: left;
-      margin-right: 10px;
-      line-height: normal;
-      border-radius: 3px;
+			display      : inline-block;
+			width        : $topbar-control-height;
+			height       : $topbar-control-height;
+			overflow     : hidden;
+			float        : left;
+			margin-right : 10px;
+			line-height  : normal;
+			border-radius: 3px;
 
       img {
         width: $topbar-control-height;
@@ -73,27 +72,27 @@ body {
   }
 
   .file-menu {
-    position: absolute;
-    left: ($topbar-height - $topbar-control-height) / 2;
-    top: ($topbar-height - $topbar-control-height) / 2;
-    text-align: left;
+		position  : absolute;
+		left      : ($topbar-height - $topbar-control-height) / 2;
+		top       : ($topbar-height - $topbar-control-height) / 2;
+		text-align: left;
   }
 
   .title {
-    width: 800px;
-    margin: 13px auto;
-    text-align: center;
+		width     : 800px;
+		margin    : 13px auto;
+		text-align: center;
 
     .saved-twiddles-header {
-      color: $bleached-orange;
-      font-size: 15px;
+			color    : $bleached-orange;
+			font-size: $font-size-larger;
     }
 
     .indicator {
-      text-transform: uppercase;
-      font-weight: bold;
-      color: $bleached-orange;
-      text-shadow: rgba(0, 0, 0, 0.3) 0px 1px 0px;
+			text-transform: uppercase;
+			font-weight   : bold;
+			color         : $bleached-orange;
+			text-shadow   : $text-shadow;
 
       a {
         color: #ffffff;
@@ -105,21 +104,21 @@ body {
     }
 
     .input-edit {
-      display: inline-block;
-      padding: 5px 10px;
-      transition: background .3s;
-      font-size: 15px;
-      text-shadow: $text-shadow;
-      border-radius: 3px;
-      border: 0;
-      color: $bleached-orange;
-      cursor: pointer;
+			display      : inline-block;
+			padding      : 5px 10px;
+			transition   : background .3s;
+			font-size    : $font-size-larger;
+			text-shadow  : $text-shadow;
+			border-radius: 3px;
+			border       : 0;
+			color        : $bleached-orange;
+			cursor       : pointer;
 
       input {
-        background-color: transparent;
-        border: 0;
-        outline: 0;
-        box-sizing: content-box;
+				background-color: transparent;
+				border          : 0;
+				outline         : 0;
+				box-sizing      : content-box;
       }
 
       .glyphicon {
@@ -136,10 +135,11 @@ body {
       }
 
       &.active {
-        text-shadow: none;
-        background-color: rgba(0,0,0,0.2);
-        box-shadow: rgba(255,255,255,0.15) 0 1px 0px,inset rgba(0,0,0,0.17) 0 1px 1px;
-        outline: 0;
+				text-shadow     : none;
+				background-color: $menu-bg;
+				outline         : 0;
+
+				@include vendor(box-shadow, $menu-box-shadow);
       }
     }
 
@@ -152,21 +152,23 @@ body {
   .dropdown {
 
     &.open .dropdown-toggle {
-      text-shadow: none;
-      background-color: rgba(0,0,0,0.2);
-      box-shadow: rgba(255,255,255,0.15) 0 1px 0px,inset rgba(0,0,0,0.17) 0 1px 1px;
-      border: 1px solid transparent;
+			text-shadow     : none;
+			background-color: $menu-bg;
+
+			@include trans-border;
+			@include vendor(box-shadow, $menu-box-shadow);
     }
   }
 
   .dropdown-toggle, .sign-in {
-    height: $topbar-control-height;
-    line-height: $topbar-control-height - 2;
-    text-transform: uppercase;
-    font-weight: bold;
-    color: $bleached-orange;
-    text-shadow: $text-shadow;
-    border: 1px solid transparent;
+		height        : $topbar-control-height;
+		line-height   : $topbar-control-height - 2;
+		text-transform: uppercase;
+		font-weight   : bold;
+		color         : $bleached-orange;
+		text-shadow   : $text-shadow;
+
+		@include trans-border;
 
     &:hover, &:focus {
       text-shadow: none;
@@ -185,21 +187,22 @@ body {
 
   .signing-in {
     padding: 0px 1em;
-    height: $topbar-control-height;
-    line-height: $topbar-control-height - 2;
-    text-transform: uppercase;
-    font-weight: bold;
-    color: $bleached-orange;
-    text-shadow: $text-shadow;
-    border: 1px solid transparent;
+		height        : $topbar-control-height;
+		line-height   : $topbar-control-height - 2;
+		text-transform: uppercase;
+		font-weight   : bold;
+		color         : $bleached-orange;
+		text-shadow   : $text-shadow;
+
+    @include trans-border;
   }
 
 }
 
 .code {
   .CodeMirror, .header ul {
-    opacity: .3;
-    transition: opacity .3s;
+		opacity   : .3;
+		transition: opacity .3s;
   }
 
   &.active .CodeMirror, &.active .header ul {
@@ -207,29 +210,29 @@ body {
   }
 
   .CodeMirror {
-    font-family: Monaco, monospace;
-    font-size: 13px;
-    line-height: 1.6;
-    height: 100%;
-    width: 100%;
-    position: absolute;
+		font-family: Monaco, monospace;
+		font-size  : $font-size;
+		line-height: 1.6;
+		height     : 100%;
+		width      : 100%;
+		position   : absolute;
 
     @media (min-width: $screen-md-min) {
-      height: auto;
-      top: 60px;
-      bottom: 0;
+			height: auto;
+			top   : 60px;
+			bottom: 0;
     }
   }
 }
 
 .twiddle-panes {
-  position: absolute;
-  top: 60px;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: 0;
-  margin-left: 0;
+	position   : absolute;
+	top        : 60px;
+	bottom     : 0;
+	left       : 0;
+	right      : 0;
+	margin     : 0;
+	margin-left: 0;
 
   @media (min-width: $screen-md-min) {
     display: -webkit-flex;
@@ -237,12 +240,12 @@ body {
   }
 
   .col-md-4 {
-    -webkit-flex: 0.5;
-    flex: 0.5;
-    padding: 0;
-    height: 100%;
-    border-right: 1px solid $grey-2;
-    cursor: normal;
+		-webkit-flex: 0.5;
+		flex        : 0.5;
+		padding     : 0;
+		height      : 100%;
+		border-right: 1px solid $grey-3;
+		cursor      : normal;
 
     @media (max-width: $screen-md-min) {
       margin-bottom: 60px;
@@ -283,11 +286,11 @@ body {
   }
 
   .header {
-    height: $code-header-height;
-    border-bottom: 1px solid $grey-2;
-    font-size: 16px;
-    background-color: $grey-1;
-    position: relative;
+		height          : $code-header-height;
+		border-bottom   : 1px solid $grey-3;
+		font-size       : $font-size-larger;
+		background-color: $grey-1;
+		position        : relative;
 
     .nav-left {
       position: absolute;
@@ -296,10 +299,10 @@ body {
     }
 
     .file-picker {
-      margin-left: 15px;
-      margin-top: 8px;
-      margin-bottom: 0;
-      position: absolute;
+			margin-left  : 15px;
+			margin-top   : 8px;
+			margin-bottom: 0;
+			position     : absolute;
     }
 
     .nav-left+.file-picker {
@@ -320,35 +323,25 @@ body {
       font-size: 1em;
     }
 
-    .glyphicon, .twiddlicon {
-      text-align:center;
-      color: $header-icon-color;
-      text-shadow: 1px 1px 0px white;
-      cursor: pointer;
-      padding: 2px;
+    .glyphicon,
+    .twiddlicon {
+			text-align : center;
+			color      : $header-icon-color;
+			text-shadow: $icon-shadow;
+			cursor     : pointer;
+			padding    : 2px;
     }
 
-    .twiddlicon:hover{
-      color: $grey-1;
-      background-color: #d6c3ba;
-      border-radius: 20%;
-      padding: 2px;
-      text-shadow: 1px 1px 0px #ad9488;
-    }
-
-    .glyphicon-plus {
-      padding-bottom: 3px;
-      padding-left: 3px;
-    }
-
+    .twiddlicon:hover,
     .glyphicon:hover {
-      color: $grey-1;
-      background-color: #d6c3ba;
-      border-radius: 20%;
-      padding: 2px;
-      text-shadow: 1px 1px 0px #ad9488;
+			color           : $grey-1;
+			background-color: $icon-bg;
+			border-radius   : 20%;
+			padding         : 2px;
+			text-shadow     : $icon-shadow-hover;
     }
 
+    .glyphicon-plus,
     .glyphicon-plus:hover {
       padding-bottom: 3px;
       padding-left: 3px;
@@ -366,15 +359,15 @@ body {
   }
 
   .exit-full-screen-link {
-    display: block;
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    width: 100px;
-    margin-left: -50px;
-    text-align: center;
-    color: $dropdown-link-color;
-    cursor: pointer;
+		display    : block;
+		position   : absolute;
+		bottom     : 20px;
+		left       : 50%;
+		width      : 100px;
+		margin-left: -50px;
+		text-align : center;
+		color      : $dropdown-link-color;
+		cursor     : pointer;
   }
 }
 
@@ -389,13 +382,12 @@ body {
 }
 
 .dropdown-submenu > .dropdown-menu {
-  top: 0;
-  left: 100%;
-  margin-top: -6px;
-  margin-left: -1px;
-  -webkit-border-radius: 0 6px 6px 6px;
-  -moz-border-radius: 0 6px 6px;
-  border-radius: 0 6px 6px 6px;
+	top        : 0;
+	left       : 100%;
+	margin-top : -6px;
+	margin-left: -1px;
+  
+  @include vendor(border-radius, 0 6px 6px 6px);
 }
 
 .dropdown-submenu:hover > .dropdown-menu {
@@ -403,17 +395,17 @@ body {
 }
 
 .dropdown-submenu > a:after {
-  display: block;
-  content: " ";
-  float: right;
-  width: 0;
-  height: 0;
-  border-color: transparent;
-  border-style: solid;
-  border-width: 5px 0 5px 5px;
-  border-left-color: #ccc;
-  margin-top: 5px;
-  margin-right: -10px;
+	display          : block;
+	content          : " ";
+	float            : right;
+	width            : 0;
+	height           : 0;
+	border-color     : transparent;
+	border-style     : solid;
+	border-width     : 5px 0 5px 5px;
+	border-left-color: $grey-5;
+	margin-top       : 5px;
+	margin-right     : -10px;
 }
 
 .dropdown-submenu:hover>a:after {
@@ -427,43 +419,42 @@ body {
 .dropdown-submenu.pull-left > .dropdown-menu {
   left: -100%;
   margin-left: 10px;
-  -webkit-border-radius: 6px 0 6px 6px;
-  -moz-border-radius: 6px 0 6px 6px;
-  border-radius: 6px 0 6px 6px;
+
+  @include vendor(border-radius, 6px 0 6px 6px);
 }
 
 .url-bar {
-  background: #eee;
-  border-bottom: 1px solid #ddd;
-  padding: 6px;
+	background   : $grey-2;
+	border-bottom: 1px solid $grey-4;
+	padding      : 6px;
 }
 .url-bar > input {
-  display: block;
-  height: 25px;
-  width: 100%;
-  padding: 3px;
-  background: #fff;
-  border: 1px solid #ddd;
+	display   : block;
+	height    : 25px;
+	width     : 100%;
+	padding   : 3px;
+	background: #fff;
+	border    : 1px solid $grey-4;
 }
 
 .run-now {
-  margin-left: 10px;
-  padding: 1px 6px 3px;
+	margin-left: 10px;
+	padding    : 1px 6px 3px;
 }
 
 .run-or-live-reload {
-  position: absolute;
-  right: 0;
-  top: 8px;
-  margin: 10px 25px;
-  text-align: right;
+	position  : absolute;
+	right     : 0;
+	top       : 8px;
+	margin    : 10px 25px;
+	text-align: right;
 }
 
 .handle {
-  width: 3px;
-  background-color: transparent;
-  position: relative;
-  left: -2px;
+	width           : 3px;
+	background-color: transparent;
+	position        : relative;
+	left            : -2px;
 
   @media (min-width: $screen-md-min) {
     height: 100%;
@@ -480,10 +471,10 @@ div.table-responsive {
 
   thead th {
     padding: 8px;
-    border: 1px solid #ddd;
+    border: 1px solid $grey-4;
   }
 
   tbody tr:hover {
-    background-color: $ember-orange;
+    background-color: $pale-orange;
   }
 }
