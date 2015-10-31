@@ -4,14 +4,15 @@
 @import "vendor/twiddlicon/twiddlicon.scss";
 
 
+body {
+  font-family: 'Maven Pro', sans-serif;
+}
+
 button {
   @extend .btn;
   @extend .btn-default;
 }
 
-body {
-  font-family: 'Maven Pro', sans-serif;
-}
 
 .toolbar {
 	box-sizing      : border-box;
@@ -35,16 +36,13 @@ body {
 
   .dropdown-toggle,
   .sign-in {
-		height        : $topbar-control-height;
-		line-height   : $topbar-control-height - 2;
-		text-transform: uppercase;
-		font-weight   : bold;
-		color         : $bleached-orange;
-		text-shadow   : $text-shadow;
+		height     : $topbar-control-height;
+		line-height: $topbar-control-height - 2;
 
 		@include trans-border;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
 			text-shadow     : none;
 			background-color: $menu-hover-bg;
     }
@@ -55,28 +53,22 @@ body {
   }
 
 	.dropdown-submenu:hover > a {
-	  background: $dropdown-link-hover-bg;
-	  color: $dropdown-link-hover-color;
+		background: $dropdown-link-hover-bg;
+		color     : $dropdown-link-hover-color;
 	}
 }
 
 .main-menu {
-	float: left;
-	//margin-top: ($topbar-height - $topbar-control-height) / 2;
+	float      : left;
 	margin-left: ($topbar-height - $topbar-control-height) / 2;
 }
 
 .title {
 	width     : 800px;
-	margin    : ($topbar-height - $topbar-control-height) / 2 auto;
-	margin: 0 auto;
+	margin    : 0 auto;
 	text-align: center;
 
   .indicator {
-		text-transform: uppercase;
-		font-weight   : bold;
-		color         : $bleached-orange;
-		text-shadow   : $text-shadow;
 
     a {
 			color          : #ffffff;
@@ -93,7 +85,6 @@ body {
 		padding      : 5px 10px;
 		transition   : background .3s;
 		font-size    : $font-size-larger;
-		text-shadow  : $text-shadow;
 		border-radius: 3px;
 		border       : 0;
 		color        : $bleached-orange;
@@ -115,8 +106,8 @@ body {
     }
 
     &:hover {
-      text-shadow: none;
-      background-color: $menu-hover-bg;
+			text-shadow     : none;
+			background-color: $menu-hover-bg;
     }
 
     &.active {
@@ -129,8 +120,7 @@ body {
 }
 
 .user-menu {
-	float       : right;
-	//padding-top  : ($topbar-height - $topbar-control-height) / 2;
+	float        : right;
 	padding-right: ($topbar-height - $topbar-control-height) / 2;
 
   .user-avatar {
@@ -154,59 +144,71 @@ body {
   }
 
 	.sign-in {
-	  cursor: pointer;
-		padding : 0px 1em;
+		cursor : pointer;
+		padding: 0px 1em;
 	}
 
 	.signing-in {
-		padding       : 0px 1em;
-		height        : $topbar-control-height;
-		line-height   : $topbar-control-height - 2;
-		text-transform: uppercase;
-		font-weight   : bold;
-		color         : $bleached-orange;
-		text-shadow   : $text-shadow;
+		padding    : 0px 1em;
+		height     : $topbar-control-height;
+		line-height: $topbar-control-height - 2;
 
 	  @include trans-border;
 	}
 }
 
+.toolbar .dropdown-toggle,
+.sign-in,
+.indicator,
+.signing-in {
+	text-transform: uppercase;
+	font-weight   : bold;
+	color         : $bleached-orange;
+	text-shadow   : $text-shadow;
+}
+
 .twiddle-panes {
-	display              : -webkit-box;
-	display              : -webkit-flex;
-	display              : -ms-flexbox;
-	display              : flex;
-	-webkit-flex-flow    : row wrap;
-	-ms-flex-flow        : row wrap;
-	flex-flow            : row wrap;
-	-webkit-box-align    : stretch;
-	-webkit-align-items  : stretch;
-	-ms-flex-align       : stretch;
-	align-items          : stretch;
-	-webkit-align-content: stretch;
-	-ms-flex-line-pack   : stretch;
-	align-content        : stretch;
+	@media (min-width: $screen-md) {
+		display              : -webkit-box;
+		display              : -webkit-flex;
+		display              : -ms-flexbox;
+		display              : flex;
+		-webkit-flex-flow    : row wrap;
+		-ms-flex-flow        : row wrap;
+		flex-flow            : row wrap;
+		-webkit-box-align    : stretch;
+		-webkit-align-items  : stretch;
+		-ms-flex-align       : stretch;
+		align-items          : stretch;
+		-webkit-align-content: stretch;
+		-ms-flex-line-pack   : stretch;
+		align-content        : stretch;
+	}
 }
 
 .pane {
-	-webkit-box-flex       : 1;
-	-webkit-flex           : 1;
-	-ms-flex               : 1;
-	flex                   : 1;
-	-webkit-flex-basis     : 33.33333%;
-	-ms-flex-preferred-size: 33.33333%;
-	flex-basis             : 33.33333%;
-	-webkit-box-orient     : vertical;
-	-webkit-box-direction  : normal;
-	-webkit-flex-direction : column;
-	-ms-flex-direction     : column;
-	flex-direction         : column;
-	height                 : -moz-calc(100vh - #{$code-pad});
-	height                 : -webkit-calc(100vh - #{$code-pad});
-	height                 : -o-calc(100vh - #{$code-pad});
-	height                 : calc(100vh - #{$code-pad});
-	position               : relative;
-	border-right           : 1px solid $grey-3;
+	position: relative;
+	height  : 100vh;
+
+	@media (min-width: $screen-md) {
+		-webkit-box-flex       : 1;
+		-webkit-flex           : 1;
+		-ms-flex               : 1;
+		flex                   : 1;
+		-webkit-flex-basis     : 33.33333%;
+		-ms-flex-preferred-size: 33.33333%;
+		flex-basis             : 33.33333%;
+		-webkit-box-orient     : vertical;
+		-webkit-box-direction  : normal;
+		-webkit-flex-direction : column;
+		-ms-flex-direction     : column;
+		flex-direction         : column;
+		height                 : -moz-calc(100vh - #{$code-pad});
+		height                 : -webkit-calc(100vh - #{$code-pad});
+		height                 : -o-calc(100vh - #{$code-pad});
+		height                 : calc(100vh - #{$code-pad});
+		border-right           : 1px solid $grey-3;
+	}
 }
 
 .header {
@@ -222,9 +224,9 @@ body {
 	background-color: $grey-1;
 
   .nav-left {
-    position: absolute;
-    top: 18px;
-    left: 15px;
+		position: absolute;
+		top     : 18px;
+		left    : 15px;
   }
 
   .file-picker {
@@ -277,8 +279,10 @@ body {
 }
 
 .code {
-	max-width: 33.33333%;
-	
+	@media (min-width: $screen-md) {
+		max-width: 33.33333%;
+	}
+
   .CodeMirror,
   .header ul {
 		opacity   : .3;
@@ -306,13 +310,14 @@ body {
 }
 
 .output {
-	-webkit-box-flex: 1;
-	-webkit-flex    : 1;
-	-ms-flex        : 1;
-	flex            : 1;
-	width           : auto;
-	min-width       : 33.33333%;
-
+	@media (min-width: $screen-md) {
+		-webkit-box-flex: 1;
+		-webkit-flex    : 1;
+		-ms-flex        : 1;
+		flex            : 1;
+		width           : auto;
+		min-width       : 33.33333%;
+	}
   .build-msgs {
 		margin : 18px 25px;
 		display: inline-block;
@@ -372,6 +377,8 @@ body {
 		background-color: $grey-4;
 	}
 }
+
+
 
 
 // #demo-app {
