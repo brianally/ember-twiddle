@@ -4,11 +4,6 @@
 @import "vendor/twiddlicon/twiddlicon.scss";
 
 
-.dropdown-submenu:hover > a {
-  background: $dropdown-link-hover-bg;
-  color: $dropdown-link-hover-color;
-}
-
 button {
   @extend .btn;
   @extend .btn-default;
@@ -19,9 +14,9 @@ body {
 }
 
 .toolbar {
-	overflow        : hidden;
 	box-sizing      : border-box;
 	height          : $topbar-height;
+	padding-top     : 16px;
 	font-size       : $font-size;
 	background      : $ember-orange top center;
 	background-image: url("../images/navigation_background.png");
@@ -59,16 +54,22 @@ body {
     padding: 0 1em;
   }
 
-  .main-menu {
-  	float: left;
-  	margin-top: ($topbar-height - $topbar-control-height) / 2;
-  	margin-left: ($topbar-height - $topbar-control-height) / 2;
-  }
+	.dropdown-submenu:hover > a {
+	  background: $dropdown-link-hover-bg;
+	  color: $dropdown-link-hover-color;
+	}
+}
+
+.main-menu {
+	float: left;
+	//margin-top: ($topbar-height - $topbar-control-height) / 2;
+	margin-left: ($topbar-height - $topbar-control-height) / 2;
 }
 
 .title {
 	width     : 800px;
 	margin    : ($topbar-height - $topbar-control-height) / 2 auto;
+	margin: 0 auto;
 	text-align: center;
 
   .indicator {
@@ -129,7 +130,7 @@ body {
 
 .user-menu {
 	float       : right;
-	margin-top  : ($topbar-height - $topbar-control-height) / 2;
+	//padding-top  : ($topbar-height - $topbar-control-height) / 2;
 	padding-right: ($topbar-height - $topbar-control-height) / 2;
 
   .user-avatar {
@@ -276,6 +277,7 @@ body {
 }
 
 .code {
+	max-width: 33.33333%;
 	
   .CodeMirror,
   .header ul {
@@ -346,14 +348,6 @@ body {
 	}
 
   .content {
-		// position: absolute;
-		// top     : $code-header-height + $url-bar-height + ($url-bar-padding * 2);
-		// right   : 0;
-		// bottom  : 0;
-	// height                 : -moz-calc(100vh - (#{$code-header-height} + #{$topbar-height}));
-	// height                 : -webkit-calc(100vh - (#{$code-header-height} + #{$topbar-height}));
-	// height                 : -o-calc(100vh - (#{$code-header-height} + #{$topbar-height}));
-	// height                 : calc(100vh - (#{$code-header-height} + #{$topbar-height}));
 		border  : 0;
 
     iframe {

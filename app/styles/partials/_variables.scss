@@ -27,8 +27,8 @@ $code-header-height              : 60px;
 $url-bar-height                  : 30px;
 $url-bar-padding                 : 6px;
 
-$code-pad                        : $code-header-height + $topbar-height;
-$content-pad                     : $code-header-height + $topbar-height + $url-bar-height + ($url-bar-padding * 2) + 6px;
+$code-pad                        : $topbar-height + $code-header-height;
+$content-pad                     : $topbar-height + $code-header-height + $url-bar-height + ($url-bar-padding * 2) + 6px;
 
 $font-size                       : 13px;
 $font-size-larger                : 15px;
